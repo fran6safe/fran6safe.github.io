@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oladipupo Abidemi Francis — Data Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070b12;
+    --surface: #0e1420;
+    --surface2: #151d2e;
+    --border: #1e2d45;
+    --accent: #00d4aa;
+    --accent2: #4f8ef7;
+    --accent3: #f7a34f;
+    --text: #dce8f5;
+    --muted: #6b8aaa;
+    --card: rgba(255,255,255,0.03);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(7,11,18,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 5% 60px;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-2 {
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(79,142,247,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.8s ease;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease 0.1s both;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: slideUp 0.8s ease 0.2s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease 0.3s both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease 0.4s both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #070b12;
+    padding: 12px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #00f5c0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,212,170,0.25);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* SECTION */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 90px 5%;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-line {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .skill-chip:hover {
+    border-color: var(--accent);
+    background: var(--surface2);
+    transform: translateY(-2px);
+  }
+
+  .skill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .skill-dot.blue { background: var(--accent2); }
+  .skill-dot.orange { background: var(--accent3); }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: rgba(0,212,170,0.3);
+    background: var(--surface2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .project-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .project-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+
+  .project-tool {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(0,212,170,0.3);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .project-tool.blue {
+    color: var(--accent2);
+    border-color: rgba(79,142,247,0.3);
+  }
+
+  .project-tool.orange {
+    color: var(--accent3);
+    border-color: rgba(247,163,79,0.3);
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-desc {
+    color: var(--muted);
+    font-size: 0.83rem;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-insights {
+    background: rgba(0,212,170,0.04);
+    border-left: 2px solid var(--accent);
+    padding: 10px 14px;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
+    color: var(--text);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .project-insights strong {
+    color: var(--accent);
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.2rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    color: var(--muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .project-link:hover { gap: 10px; }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.2s;
+  }
+
+  .cert-card:hover {
+    border-color: rgba(0,212,170,0.3);
+    background: var(--surface2);
+  }
+
+  .cert-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cert-name {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 3px;
+  }
+
+  .cert-issuer {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text strong { color: var(--accent); font-weight: 400; }
+
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .fact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+
+  .fact-label { color: var(--muted); }
+  .fact-value { color: var(--text); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 60px 5%;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .contact-title span { color: var(--accent); }
+
+  .contact-sub {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px 5%;
+    color: var(--muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s;
+    border-radius: 2px;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(7,11,18,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 5%;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ACTIVE NAV */
+  .nav-links a.active { color: var(--accent); }
+
+  /* BACK TO TOP */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 40px;
+    height: 40px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+    z-index: 50;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .back-to-top:hover {
+    background: var(--accent);
+    color: #070b12;
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">fran6safe</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#certs" onclick="closeMobile()">Certifications</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <span class="hero-tag">// Data Analyst & Educator · Lagos, Nigeria</span>
+    <h1>Every dataset<br>has a <span>story</span><br>to tell.</h1>
+    <p class="hero-bio">
+      I'm <strong style="color:#fff">Oladipupo Abidemi Francis</strong> — a data analyst and educator who transforms raw data into 
+      clear, actionable insights using SQL Server, Excel, Power BI, and AI automation. 
+      I also run <strong style="color:#fff">Franova Tech</strong>, where I train the next generation of data professionals.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">2+</span>
+        <span class="stat-label">Years Analyzing</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Projects Built</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Core Tools</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="https://github.com/fran6safe" target="_blank" class="btn-secondary">GitHub Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-label">Portfolio</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="section-title">Featured Projects</div>
+  <p class="section-sub" style="margin-bottom:2.5rem">Real-world data problems, solved with clarity and purpose.</p>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1: Amazon -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">🛍️</span>
+        <span class="project-tool">Excel · EDA</span>
+      </div>
+      <div class="project-title">Amazon Product Review Analysis</div>
+      <div class="project-desc">
+        Analyzed 1,465 Amazon product records from 16 fields — uncovering pricing patterns, 
+        discount strategies, customer ratings, and revenue potential across categories 
+        using Pivot Tables, slicers, and calculated fields.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        High discounts don't guarantee high ratings. Electronics dominated reviews while 
+        Home Kitchen led in revenue potential — guiding smarter marketing strategy.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Pivot Tables</span>
+        <span class="tag">Data Cleaning</span>
+        <span class="tag">Dashboard</span>
+        <span class="tag">Revenue Analysis</span>
+        <span class="tag">E-commerce</span>
+      </div>
+      <a href="https://github.com/fran6safe/AMAZON-PROJECT-DSA-" target="_blank" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- PROJECT 2: Palmora HR -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">👥</span>
+        <span class="project-tool blue">Power BI · HR</span>
+      </div>
+      <div class="project-title">Palmora HR Dashboard</div>
+      <div class="project-desc">
+        Built a multi-page interactive HR dashboard for Palmora Group analyzing 250 employee 
+        records across 12 departments — covering salary distribution, gender equity, 
+        location-based compensation, and performance ratings.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        Lagos emerged as the highest-paying location. The workforce was nearly gender-balanced 
+        (50.4% male, 49.6% female). A significant % of employees remained unrated — 
+        signalling gaps in performance management.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">Data Modeling</span>
+        <span class="tag">KPI Tracking</span>
+        <span class="tag">HR Analytics</span>
+      </div>
+      <a href="https://www.linkedin.com/in/fran7safe/" target="_blank" class="project-link">View on LinkedIn →</a>
+    </div>
+
+    <!-- PROJECT 3: KMS SQL -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">🏪</span>
+        <span class="project-tool orange">SQL Server · BI</span>
+      </div>
+      <div class="project-title">KMS Retail Sales Intelligence</div>
+      <div class="project-desc">
+        Imported and analyzed historical order data (2009–2012) from Kultra Mega Stores 
+        using T-SQL — answering 10+ real business questions around shipping efficiency, 
+        customer segmentation, regional performance, and return patterns.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        Western Region led in sales volume. Delivery trucks were overused for high-priority 
+        orders. Consumer segment outperformed Corporate in profitability — a true 80/20 pattern.
+      </div>
+      <div class="project-tags">
+        <span class="tag">T-SQL</span>
+        <span class="tag">SSMS</span>
+        <span class="tag">Joins & CTEs</span>
+        <span class="tag">Retail Analytics</span>
+        <span class="tag">Business Intelligence</span>
+      </div>
+      <a href="https://github.com/fran6safe" target="_blank" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- PROJECT 4: OPay -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">💳</span>
+        <span class="project-tool">Excel · Finance</span>
+      </div>
+      <div class="project-title">OPay Financial Transactions Dashboard</div>
+      <div class="project-desc">
+        Transformed 904 personal OPay transactions (Jan–Jul 2025) worth over ₦15.3M 
+        from messy raw exports into a professional financial intelligence dashboard — 
+        revealing spending patterns, peak hours, and category breakdowns.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        Peak transaction activity: 12 PM–6 PM daily. Airtime & Debit dominated small 
+        transactions that collectively made a massive financial impact. May & June had 
+        the strongest inflows.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Data Cleaning</span>
+        <span class="tag">Pivot Tables</span>
+        <span class="tag">Time Analysis</span>
+        <span class="tag">Financial Data</span>
+        <span class="tag">Personal Finance</span>
+      </div>
+      <a href="https://www.linkedin.com/in/fran7safe/" target="_blank" class="project-link">View on LinkedIn →</a>
+    </div>
+
+    <!-- PROJECT 5: Nigeria Election SQL -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">🗳️</span>
+        <span class="project-tool orange">SQL Server · Civic</span>
+      </div>
+      <div class="project-title">Nigeria 2023 Election Data Analysis</div>
+      <div class="project-desc">
+        Built a fully normalized T-SQL database of the 2023 Nigerian Presidential Election 
+        covering all 37 states — then wrote 10 advanced analytical queries to reveal 
+        voter turnout patterns, party dominance by region, swing states, and competitive races.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        Used window functions (RANK() OVER PARTITION BY), CTEs, CASE WHEN pivoting, and 
+        UNION ALL scorecards — one of the most original SQL portfolio projects in Nigeria.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Window Functions</span>
+        <span class="tag">CTEs</span>
+        <span class="tag">Data Normalization</span>
+        <span class="tag">Nigeria Data</span>
+        <span class="tag">Civic Analytics</span>
+      </div>
+      <a href="https://github.com/fran6safe" target="_blank" class="project-link">View on GitHub →</a>
+    </div>
+
+    <!-- PROJECT 6: Smoking Health -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-icon">🏥</span>
+        <span class="project-tool blue">Power BI · Health</span>
+      </div>
+      <div class="project-title">Smoking Health Analysis Dashboard</div>
+      <div class="project-desc">
+        Designed an interactive Power BI dashboard analyzing smoking-related health data 
+        across demographics — using slicers, DAX measures, and dynamic visuals to make 
+        complex health data accessible for both technical and non-technical audiences.
+      </div>
+      <div class="project-insights">
+        <strong>Key Insight</strong>
+        Demonstrated strong Power BI storytelling skills with healthcare data — 
+        translating raw health metrics into an interactive, decision-supporting visual 
+        report suitable for public health professionals.
+      </div>
+      <div class="project-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX Measures</span>
+        <span class="tag">Healthcare</span>
+        <span class="tag">Interactive Filters</span>
+        <span class="tag">Data Storytelling</span>
+      </div>
+      <a href="https://www.linkedin.com/in/fran7safe/" target="_blank" class="project-link">View on LinkedIn →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-header">
+    <span class="section-label">Capabilities</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="section-title">Skills & Tools</div>
+  <p class="section-sub" style="margin-bottom:2.5rem">The technical stack I use to turn data into decisions.</p>
+
+  <div class="skills-grid">
+    <div class="skill-chip"><span class="skill-dot"></span>Microsoft Excel</div>
+    <div class="skill-chip"><span class="skill-dot blue"></span>Power BI</div>
+    <div class="skill-chip"><span class="skill-dot orange"></span>SQL Server (SSMS)</div>
+    <div class="skill-chip"><span class="skill-dot"></span>T-SQL</div>
+    <div class="skill-chip"><span class="skill-dot blue"></span>DAX & Power Query</div>
+    <div class="skill-chip"><span class="skill-dot orange"></span>Python (Basics)</div>
+    <div class="skill-chip"><span class="skill-dot"></span>Data Cleaning</div>
+    <div class="skill-chip"><span class="skill-dot blue"></span>EDA</div>
+    <div class="skill-chip"><span class="skill-dot orange"></span>n8n Automation</div>
+    <div class="skill-chip"><span class="skill-dot"></span>Make.com</div>
+    <div class="skill-chip"><span class="skill-dot blue"></span>Pivot Tables</div>
+    <div class="skill-chip"><span class="skill-dot orange"></span>Dashboard Design</div>
+    <div class="skill-chip"><span class="skill-dot"></span>Data Storytelling</div>
+    <div class="skill-chip"><span class="skill-dot blue"></span>VBA Macros</div>
+    <div class="skill-chip"><span class="skill-dot orange"></span>Statistical Analysis</div>
+    <div class="skill-chip"><span class="skill-dot"></span>AI Tools (Copilot)</div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header">
+    <span class="section-label">Credentials</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="section-title">Certifications</div>
+  <p class="section-sub" style="margin-bottom:2.5rem">Continuous learning across analytics, AI, and data science.</p>
+
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Data Analysis — Incubator Hub (DSA)</div>
+        <div class="cert-issuer">The Incubator Hub / Digital SkillUp Africa</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🟦</div>
+      <div>
+        <div class="cert-name">Automating Real-World Tasks with Python</div>
+        <div class="cert-issuer">Google / Coursera</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📐</div>
+      <div>
+        <div class="cert-name">Data Science Math Skills</div>
+        <div class="cert-issuer">Duke University / Coursera</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Excel Fundamentals for Data Analysis</div>
+        <div class="cert-issuer">Macquarie University / Coursera</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">AI Career Essentials</div>
+        <div class="cert-issuer">ALX Africa</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🔐</div>
+      <div>
+        <div class="cert-name">Career Essentials in Cybersecurity</div>
+        <div class="cert-issuer">Microsoft & LinkedIn Learning</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">💡</div>
+      <div>
+        <div class="cert-name">Generative AI Productivity Skills</div>
+        <div class="cert-issuer">Microsoft & LinkedIn Learning</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📖</div>
+      <div>
+        <div class="cert-name">Data Literacy</div>
+        <div class="cert-issuer">4EU+ Alliance / MTN Online Academy</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-name">3MTT Nigeria — Data Science</div>
+        <div class="cert-issuer">Federal Government of Nigeria</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <div>
+        <div class="cert-name">HPLIFE eLearning Ambassador</div>
+        <div class="cert-issuer">HP Life</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <div>
+        <div class="cert-name">Crash Course on Python</div>
+        <div class="cert-issuer">Google / Coursera</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🛡️</div>
+      <div>
+        <div class="cert-name">AI Productivity Tools</div>
+        <div class="cert-issuer">LinkedIn Learning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-header">
+    <span class="section-label">The Person</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="section-title">About Me</div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm <strong>Oladipupo Abidemi Francis</strong> — a data analyst, educator, and founder 
+        based in Lagos, Nigeria. I hold a B.Ed in Mathematics from the University of Nigeria, Nsukka, 
+        where I served as Departmental President.
+      </p>
+      <p>
+        Over the past two years, I've moved from teaching Mathematics and Physics to becoming a 
+        full-time <strong>Data Analytics Instructor at Franova Tech</strong>, training students from 
+        basics to advanced dashboards and SQL — because I believe every data analyst needs both 
+        technical precision and the ability to explain it clearly.
+      </p>
+      <p>
+        My work spans <strong>e-commerce analytics, HR intelligence, financial data, health data, 
+        civic data, and AI automation</strong>. I use n8n, Make.com, and Twilio to build real 
+        automations that save businesses hours every week.
+      </p>
+      <p>
+        I believe <em style="color:var(--accent)">"Every dataset has a story to tell"</em> — and I'm 
+        the analyst who finds it.
+      </p>
+    </div>
+
+    <div class="about-facts">
+      <div class="fact-row">
+        <span class="fact-label">Location</span>
+        <span class="fact-value">Lagos, Nigeria</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">Education</span>
+        <span class="fact-value">B.Ed Mathematics, UNN</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">Primary Tools</span>
+        <span class="fact-value">SQL · Excel · Power BI</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">Also Does</span>
+        <span class="fact-value">AI Automation (n8n, Make.com)</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">Teaches At</span>
+        <span class="fact-value">Franova Tech</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-label">Open To</span>
+        <span class="fact-value">Data Analyst Roles · Remote / Hybrid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <div class="contact-title">Let's work with <span>data</span> together.</div>
+    <p class="contact-sub">
+      I'm open to full-time, contract, and remote data analyst roles. 
+      I bring clean analysis, honest insights, and clear communication to every project.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:abidemifrancis@gmail.com" class="contact-link">
+        ✉️ abidemifrancis@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/fran7safe/" target="_blank" class="contact-link">
+        🔗 LinkedIn Profile
+      </a>
+      <a href="https://github.com/fran6safe" target="_blank" class="contact-link">
+        🐙 GitHub Profile
+      </a>
+      <a href="https://wa.me/+2347062463125" target="_blank" class="contact-link">
+        💬 WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by Oladipupo Abidemi Francis · Data Analyst · Lagos, Nigeria · 2026</p>
+  <p style="margin-top:6px; color:#2a3d55">"Every dataset has a story to tell."</p>
+</footer>
+
+<!-- BACK TO TOP -->
+<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // Scroll reveal — add .reveal class to cards
+  document.querySelectorAll('.project-card, .cert-card, .skill-chip, .fact-row').forEach((el, i) => {
+    el.classList.add('reveal');
+    if (i % 3 === 1) el.classList.add('reveal-delay-1');
+    if (i % 3 === 2) el.classList.add('reveal-delay-2');
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
