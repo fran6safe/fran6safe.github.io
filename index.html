@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="motion.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oladipupo Abidemi Francis — Data Analyst Portfolio</title>
@@ -700,6 +701,73 @@
     .projects-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 1.5rem; }
   }
+
+  /* CERTIFICATE LIBRARY */
+  .credential-summary {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 20px 22px;
+    margin-bottom: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  .credential-total { display: flex; flex-direction: column; min-width: 125px; }
+  .credential-total strong {
+    color: var(--accent); font-family: 'Syne', sans-serif;
+    font-size: 2rem; line-height: 1.1;
+  }
+  .credential-total span, .credential-counts span {
+    color: var(--muted); font-size: 0.72rem;
+  }
+  .credential-counts { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  .credential-counts b { color: var(--text); margin-left: 4px; }
+  .cert-controls { margin-bottom: 1.5rem; }
+  .cert-search-wrap {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 0 14px; max-width: 560px;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+  .cert-search-wrap input {
+    width: 100%; border: 0; outline: 0; background: transparent;
+    color: var(--text); padding: 13px 0; font: inherit; font-size: 0.82rem;
+  }
+  .cert-search-wrap input::placeholder { color: var(--muted); }
+  .cert-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cert-filter {
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); padding: 8px 12px; border-radius: 3px;
+    font: inherit; font-size: 0.72rem; cursor: pointer; transition: all .2s;
+  }
+  .cert-filter span { color: var(--text); margin-left: 5px; }
+  .cert-filter:hover, .cert-filter.active {
+    border-color: var(--accent); color: var(--accent); background: rgba(0,212,170,.06);
+  }
+  .cert-results, .cert-note, .cert-empty {
+    color: var(--muted); font-size: 0.75rem; margin-top: 12px;
+  }
+  .cert-card { min-height: 112px; }
+  .cert-card-content { min-width: 0; flex: 1; }
+  .cert-meta {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+    margin-top: 8px;
+  }
+  .cert-category, .cert-kind {
+    font-size: 0.64rem; letter-spacing: .04em; padding: 3px 7px;
+    border: 1px solid var(--border); border-radius: 2px; color: var(--muted);
+  }
+  .cert-category { color: var(--accent); border-color: rgba(0,212,170,.25); }
+  .cert-kind { color: var(--accent2); border-color: rgba(79,142,247,.25); }
+  .cert-empty { padding: 25px; text-align: center; border: 1px dashed var(--border); border-radius: 4px; }
+  @media (max-width: 768px) {
+    .credential-summary { gap: 1rem; }
+    .credential-counts { gap: 8px 12px; }
+    .cert-search-wrap { max-width: 100%; }
+  }
+
 </style>
 </head>
 <body>
@@ -750,8 +818,8 @@
         <span class="stat-label">Projects Built</span>
       </div>
       <div class="stat">
-        <span class="stat-num">15+</span>
-        <span class="stat-label">Certifications</span>
+        <span class="stat-num">92</span>
+        <span class="stat-label">Learning Credentials</span>
       </div>
       <div class="stat">
         <span class="stat-num">3</span>
@@ -979,95 +1047,41 @@
     <span class="section-label">Credentials</span>
     <div class="section-line"></div>
   </div>
-  <div class="section-title">Certifications</div>
-  <p class="section-sub" style="margin-bottom:2.5rem">Continuous learning across analytics, AI, and data science.</p>
+  <div class="section-title">Certifications & Learning</div>
+  <p class="section-sub" style="margin-bottom:1.5rem">
+    A growing record of courses, learning paths, professional training and certificates across data, technology, AI and business.
+  </p>
 
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-icon">🎓</div>
-      <div>
-        <div class="cert-name">Data Analysis — Incubator Hub (DSA)</div>
-        <div class="cert-issuer">The Incubator Hub / Digital SkillUp Africa</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🟦</div>
-      <div>
-        <div class="cert-name">Automating Real-World Tasks with Python</div>
-        <div class="cert-issuer">Google / Coursera</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📐</div>
-      <div>
-        <div class="cert-name">Data Science Math Skills</div>
-        <div class="cert-issuer">Duke University / Coursera</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📊</div>
-      <div>
-        <div class="cert-name">Excel Fundamentals for Data Analysis</div>
-        <div class="cert-issuer">Macquarie University / Coursera</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🤖</div>
-      <div>
-        <div class="cert-name">AI Career Essentials</div>
-        <div class="cert-issuer">ALX Africa</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🔐</div>
-      <div>
-        <div class="cert-name">Career Essentials in Cybersecurity</div>
-        <div class="cert-issuer">Microsoft & LinkedIn Learning</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">💡</div>
-      <div>
-        <div class="cert-name">Generative AI Productivity Skills</div>
-        <div class="cert-issuer">Microsoft & LinkedIn Learning</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📖</div>
-      <div>
-        <div class="cert-name">Data Literacy</div>
-        <div class="cert-issuer">4EU+ Alliance / MTN Online Academy</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🏅</div>
-      <div>
-        <div class="cert-name">3MTT Nigeria — Data Science</div>
-        <div class="cert-issuer">Federal Government of Nigeria</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">⚡</div>
-      <div>
-        <div class="cert-name">HPLIFE eLearning Ambassador</div>
-        <div class="cert-issuer">HP Life</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🐍</div>
-      <div>
-        <div class="cert-name">Crash Course on Python</div>
-        <div class="cert-issuer">Google / Coursera</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🛡️</div>
-      <div>
-        <div class="cert-name">AI Productivity Tools</div>
-        <div class="cert-issuer">LinkedIn Learning</div>
-      </div>
+  <div class="credential-summary" id="credentialSummary">
+    <div class="credential-total"><strong>92</strong><span>Credentials listed</span></div>
+    <div class="credential-counts">
+      <span>Coursera <b>8</b></span>
+      <span>HP LIFE <b>34</b></span>
+      <span>LinkedIn Learning <b>39</b></span>
+      <span>Other <b>10</b></span>
+      <span>Additional <b>1</b></span>
     </div>
   </div>
+
+  <div class="cert-controls">
+    <label class="cert-search-wrap">
+      <span aria-hidden="true">⌕</span>
+      <input type="search" id="certSearch" placeholder="Search a course, skill or provider..." aria-label="Search credentials">
+    </label>
+    <div class="cert-filters" id="certFilters" aria-label="Filter credentials">
+      <button class="cert-filter active" data-filter="All" type="button">All <span>92</span></button>
+      <button class="cert-filter" data-filter="Coursera" type="button">Coursera <span>8</span></button>
+      <button class="cert-filter" data-filter="HP LIFE" type="button">HP LIFE <span>34</span></button>
+      <button class="cert-filter" data-filter="LinkedIn Learning" type="button">LinkedIn <span>39</span></button>
+      <button class="cert-filter" data-filter="Other" type="button">Other <span>10</span></button>
+      <button class="cert-filter" data-filter="Additional" type="button">Additional <span>1</span></button>
+    </div>
+    <p class="cert-results" id="certResults" aria-live="polite">Showing 92 credentials</p>
+  </div>
+
+  <div class="certs-grid" id="certsGrid"></div>
+  <p class="cert-empty" id="certEmpty" hidden>No credentials match your search. Try another title or provider.</p>
+  <p class="cert-note">Note: This collection includes individual courses, learning paths, training credentials and certificates. Credential verification links can be added as certificate URLs become available.</p>
 </section>
 
 <!-- ABOUT -->
@@ -1165,6 +1179,59 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
 <script>
+
+  // Searchable credential library
+  const credentials = [{"name": "Introduction to Relational Databases (RDBMS)", "issuer": "IBM", "category": "Coursera", "detail": "Jul 2026", "kind": "Course"}, {"name": "Introduction to Data Engineering", "issuer": "IBM", "category": "Coursera", "detail": "May 2026", "kind": "Course"}, {"name": "Automating Real-World Tasks with Python", "issuer": "Google", "category": "Coursera", "detail": "Jan 2026", "kind": "Course"}, {"name": "Crash Course on Python", "issuer": "Google", "category": "Coursera", "detail": "Jan 2026", "kind": "Course"}, {"name": "Basic Information Literacy", "issuer": "State University of New York (SUNY)", "category": "Coursera", "detail": "", "kind": "Course"}, {"name": "Data Science Math Skills", "issuer": "Duke University", "category": "Coursera", "detail": "", "kind": "Course"}, {"name": "Excel Fundamentals for Data Analysis", "issuer": "Macquarie University", "category": "Coursera", "detail": "", "kind": "Course"}, {"name": "Data Literacy", "issuer": "Coursera", "category": "Coursera", "detail": "", "kind": "Course"}, {"name": "3D Printing", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Agile Project Management", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "AI for Beginners", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "AI for Business Professionals", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Basics of Finance", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Business Communications", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Business Email", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Cash Flow", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Circular Economy", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Critical Thinking in the AI Era", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Customer Experience (CX) for Business Success", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Customer Relationship Management", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Data Science & Analytics", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Design Thinking", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Effective Business Websites", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Effective Leadership", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Effective Presentations", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Finding Funding", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Growth Engine for Your Business", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Introduction to Cybersecurity Awareness", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Introduction to Digital Business Skills", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Inventory Management", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "IT for Business Success", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Marketing Benefits vs. Features", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Professional Networking for Career Growth", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Profit and Loss", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Social Entrepreneurship", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Social Media Marketing", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Starting a Small Business", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Strategic Planning in the AI Age", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Success Mindset", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "The Art of Sales: Fundamentals of Selling", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Unique Value Proposition", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Your Target Audience", "issuer": "HP LIFE", "category": "HP LIFE", "detail": "", "kind": "Course"}, {"name": "Build Your Generative AI Productivity Skills with Microsoft and LinkedIn", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Learning Path", "kind": "Learning Path"}, {"name": "Career Essentials in Cybersecurity by Microsoft and LinkedIn", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Learning Path", "kind": "Learning Path"}, {"name": "Professional Soft Skills Learning Pathway", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Learning Path", "kind": "Learning Path"}, {"name": "AI Productivity Hacks to Reimagine Your Workday and Career", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Banish Your Inner Critic to Unleash Creativity", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Basics of Data Visualization Analysis", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Building Resilience", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Communication Foundations", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Copilot in PowerPoint: From Prompt to Presentation", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Critical Thinking for Better Judgment and Decision-Making", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Cybersecurity Awareness: Cybersecurity Terminology", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Cybersecurity Foundations", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Developing Your Emotional Intelligence", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Effective Listening", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Embracing Unexpected Change", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Ethics in the Age of Generative AI", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Excel Statistics Essential Training: 1", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Generative AI Skills for Creative Content", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Introduction to Artificial Intelligence", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Introduction to Prompt Engineering for Generative AI", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Learning Data Analytics: 1 Foundations", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Learning Data Analytics Part 2", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Learning Data Visualization", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Learning Excel: Data Analysis", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Learning Microsoft 365 Copilot", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Microsoft Copilot for Security", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Persuading Others", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Power BI Essential Training", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Predictive Analytics Essential Training: Data Mining", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "SQL: Data Reporting and Analysis", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Streamlining Your Work with Microsoft Copilot", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Tableau Essential Training", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Teamwork Foundations", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "The Cybersecurity Threat Landscape", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "The Non-Technical Skills of Effective Data Scientists", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Unconscious Bias", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "What Is Generative AI?", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Why Trust Matters with Rachel Botsman", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "Writing in Plain Language", "issuer": "LinkedIn Learning", "category": "LinkedIn Learning", "detail": "Course", "kind": "Course"}, {"name": "3MTT (NITDA) Data Science", "issuer": "NITDA / 3MTT", "category": "Other", "detail": "Certificate of Completion", "kind": "Credential"}, {"name": "ALX AI Career Essentials (AiCE)", "issuer": "ALX", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "Digital Ad Expert (Digital Marketing)", "issuer": "Digital Ad Expert", "category": "Other", "detail": "Feb 2025", "kind": "Credential"}, {"name": "Generative AI Master", "issuer": "Nigeria Learning Passport", "category": "Other", "detail": "Oct 2025", "kind": "Credential"}, {"name": "English for IT 1", "issuer": "Cisco Networking Academy / OpenEDG", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "English for IT 2", "issuer": "Cisco Networking Academy / OpenEDG", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "Generative AI", "issuer": "Skills Academy", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "Managing Data with Microsoft 365", "issuer": "Skills Academy", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "HTML & CSS", "issuer": "HTML & CSS Training", "category": "Other", "detail": "Sept 2023", "kind": "Credential"}, {"name": "Data Analysis Training", "issuer": "DSA Incubator / The Incubator Hub", "category": "Other", "detail": "", "kind": "Credential"}, {"name": "HP LIFE eLearning Ambassador", "issuer": "HP LIFE", "category": "Additional", "detail": "Existing credential from your original portfolio", "kind": "Ambassador credential"}];
+  const certsGrid = document.getElementById('certsGrid');
+  const certSearch = document.getElementById('certSearch');
+  const certFilters = document.getElementById('certFilters');
+  const certResults = document.getElementById('certResults');
+  const certEmpty = document.getElementById('certEmpty');
+  let activeCertFilter = 'All';
+
+  const escapeHTML = (value) => String(value).replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[char]));
+
+  function renderCredentials() {
+    const term = certSearch.value.trim().toLowerCase();
+    const visible = credentials.filter(item => {
+      const categoryMatch = activeCertFilter === 'All' || item.category === activeCertFilter;
+      const searchable = `${item.name} ${item.issuer} ${item.category} ${item.detail}`.toLowerCase();
+      return categoryMatch && searchable.includes(term);
+    });
+
+    certsGrid.innerHTML = visible.map(item => `
+      <article class="cert-card">
+        <div class="cert-icon">${item.category === 'Coursera' ? '🎓' : item.category === 'HP LIFE' ? '💡' : item.category === 'LinkedIn Learning' ? '🔷' : '🏅'}</div>
+        <div class="cert-card-content">
+          <div class="cert-name">${escapeHTML(item.name)}</div>
+          <div class="cert-issuer">${escapeHTML(item.issuer)}${item.detail && item.category === 'Coursera' ? ' · ' + escapeHTML(item.detail) : ''}</div>
+          <div class="cert-meta">
+            <span class="cert-category">${escapeHTML(item.category)}</span>
+            <span class="cert-kind">${escapeHTML(item.kind)}</span>
+            ${item.detail && item.category !== 'Coursera' ? `<span class="cert-kind">${escapeHTML(item.detail)}</span>` : ''}
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    certResults.textContent = `Showing ${visible.length} of ${credentials.length} credentials`;
+    certEmpty.hidden = visible.length !== 0;
+  }
+
+  certSearch.addEventListener('input', renderCredentials);
+  certFilters.addEventListener('click', event => {
+    const button = event.target.closest('.cert-filter');
+    if (!button) return;
+    activeCertFilter = button.dataset.filter;
+    certFilters.querySelectorAll('.cert-filter').forEach(filter =>
+      filter.classList.toggle('active', filter === button)
+    );
+    renderCredentials();
+  });
+  renderCredentials();
+
   // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
